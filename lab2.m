@@ -1,9 +1,9 @@
 clc
 close all
 clear all
-SNR=20;
-fc=8000;
-Pn=2;
+SNR=200;
+fc=80;
+Pn=20;
 [y,t,w,Tobs]=Senialyruido(SNR,fc,Pn);
 
 % figure
