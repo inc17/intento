@@ -15,11 +15,11 @@ jobs:
       - name: revisar repositorio
         uses: actions/checkout@v4
 
-      - name: setup matlab
+      - name: agregar matlab
         uses: matlab-actions/setup-matlab@v2
 
-      - name: matlab test
-        run: matlab./lab2.m
+      - name: ejecutar matlab
+        uses: matlab-actions/run-command@v2
 
       - name: subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
