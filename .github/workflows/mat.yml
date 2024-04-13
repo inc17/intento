@@ -21,7 +21,11 @@ jobs:
       - name: ejecutar matlab
         uses: matlab-actions/run-command@v2
         with:
-          command: lab.2 
-
+          command: |
+            SENIAL.m
+            Senialyruido.m
+            WNOISE.m
+            lab2.m
+            
       - name: subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
