@@ -19,10 +19,7 @@ jobs:
         uses: matlab-actions/setup-matlab@v2
 
       - name: matlab test
-        uses: matlab-actions/run-tests@v2
+        run: matlab./lab2.m
 
-      - name: comando matlab
-        uses: matlab-actions/run-command@v2
-
-      - name: guardar resultados
+      - name: subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
