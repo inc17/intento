@@ -1,0 +1,31 @@
+name: usar matlab
+
+on: 
+  push:
+    branches: [main]
+
+jobs: 
+  builds:
+    runs-on: ubuntu-latest
+    permissions:
+     contents: write
+     
+    steps:
+  
+      - name: revisar repositorio
+        uses: actions/checkout@v4
+
+      - name: agregar matlab
+        uses: matlab-actions/setup-matlab@v2
+
+      - name: ejecutar matlab
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            SENIAL.m
+            Senialyruido.m
+            WNOISE.m
+            lab2.m
+            
+      - name: subir cambios
+        uses: stefanzweifel/git-auto-commit-action@v5
