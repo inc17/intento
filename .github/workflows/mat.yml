@@ -16,10 +16,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v2
+        with: 
+         relase: 2023b 
       - name: Run tests and generate artifacts
-        uses: matlab-actions/run-tests@v2
-        with:
-          test-results-junit: test-results/results.xml
-          code-coverage-cobertura: code-coverage/coverage.xml
+        uses: matlab-actions/run-command@v2
       - name: subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
