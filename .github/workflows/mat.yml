@@ -8,17 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      actions: read
-      checks: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v2
-      - name: Run MATLAB script
-        uses: matlab-actions/run-command@v2
-      - name: Move generated files to simu folder
-        run: |
-          mv generated_files/* simu/
+      - name: Test
+        uses: matlab-actions/run-tests@v2
+        with: 
+         select-by-folder: simu
      
           
