@@ -16,8 +16,7 @@ jobs:
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v2
       - name: Run MATLAB script
-        run: |
-          matlab -batch "cd simu; tu_script_matlab;"
+        uses: matlab-actions/run-matlab@v2
       - name: Move generated files to simu folder
         run: |
           mv generated_files/* simu/
