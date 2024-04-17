@@ -1,7 +1,7 @@
 clc
 clear all
 
-u=2; %media
+u=3; %media
 v_1=sqrt(1); %varianza 1
 v_2=sqrt(2); %varianza 2
 m_exp=0;
