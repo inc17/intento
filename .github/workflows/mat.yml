@@ -8,7 +8,9 @@ jobs:
   builds:
     runs-on: ubuntu-latest
     permissions:
-     contents: write
+     contents: read
+     actions: read
+     checks: write
      
     steps:
   
@@ -20,9 +22,11 @@ jobs:
         uses: matlab-actions/run-tests@v2
         with:
           source-folder: simu
-      - name: subir cambios
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()    # run this step even if previous step failed
         with:
-          commit_message: Intento
-          repository: simu
+          name: JEST Tests            # Name of the check run which will be created
+          path: reports/jest-*.xml    # Path to test results
+          reporter: jest-junit  
           
