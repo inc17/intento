@@ -1,32 +1,25 @@
 name: usar matlab
-
-on: 
+'on':
   push:
-    branches: [main]
-
-jobs: 
+    branches:
+      - main
+jobs:
   builds:
     runs-on: ubuntu-latest
     permissions:
-     contents: read
-     actions: read
-     checks: write
-     
+      contents: read
+      actions: read
+      checks: write
     steps:
-  
       - name: Check out repository
         uses: actions/checkout@v4
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v2
-      - name: Run all tests
-        uses: matlab-actions/run-tests@v2
-        with:
-          source-folder: simu
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()    # run this step even if previous step failed
-        with:
-          name: simu           # Name of the check run which will be created
-          path: simu/jest-*.xml    # Path to test results
-          reporter: jest-junit  
+      - name: Run MATLAB script
+        run: |
+          matlab -batch "cd simu; tu_script_matlab;"
+      - name: Move generated files to simu folder
+        run: |
+          mv generated_files/* simu/
+     
           
