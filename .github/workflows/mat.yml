@@ -23,9 +23,10 @@ jobs:
         with:
           command: |
             addpath('simu');
-            diary('simu/my_results.txt','simu/graficas.png');
+            diary('simu/my_results.txt');
             lab2; 
             diary off;
+            savefig(gcf, 'simu/graficas.png');
 
       - name: Subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
