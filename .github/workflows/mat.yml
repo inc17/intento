@@ -7,8 +7,7 @@ jobs:
   builds:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: write
+      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -29,10 +28,9 @@ jobs:
             diary off;
 
       - name: Subir cambios
-        uses: actions/upload-artifact@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          name: results
-          path: simu
+          repository: simu
 
      
           
