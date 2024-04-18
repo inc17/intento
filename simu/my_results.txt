@@ -12,3 +12,17 @@ ordenados =
 
     0.6575    1.0000    2.0000
 
+Encontrar la media y la varianza
+la media es: 2.9994
+la varianza es: 0.73985
+Encontrar la g para la varianza minima de z
+El valor de g para la minima varianza es: 0.67
+Ordenar las varianzas de menor a mayor
+Varianza de x: 1
+Varianza de y: 2
+Varianza de z: 0.6575
+
+ordenados =
+
+    0.6575    1.0000    2.0000
+
