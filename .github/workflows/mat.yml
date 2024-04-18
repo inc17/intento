@@ -11,12 +11,27 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v2
         with:
-          matlab-version: R2023a
+          release: R2023a
+          
       - name: command
         uses: matlab-actions/run-command@v2
+        with:
+          action: command
+          command: |
+            addpath('simu');
+            diary('my_results.txt');
+            lab2; 
+            diary off;
+
+      - name: Subir cambios
+        uses: actions/upload-artifact@v4
+        with:
+          name: results
+          path: my_results.txt
 
      
           
