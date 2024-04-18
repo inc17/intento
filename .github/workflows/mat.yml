@@ -24,7 +24,7 @@ jobs:
         with:
           command: |
             addpath('simu');
-            diary('my_results.txt');
+            diary('simu/my_results.txt');
             lab2; 
             diary off;
 
