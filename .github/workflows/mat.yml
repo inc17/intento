@@ -32,9 +32,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: results
-          path: my_results.txt
-          run: |
-            mv my_results.txt "simu/"
+          path: "simu/my_results.txt"
 
      
           
