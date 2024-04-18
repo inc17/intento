@@ -23,7 +23,7 @@ jobs:
         with:
           command: |
             addpath('simu');
-            diary('simu/my_results.txt');
+            diary('simu/my_results.txt','simu/graficas.png');
             lab2; 
             diary off;
 
