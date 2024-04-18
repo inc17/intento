@@ -17,6 +17,11 @@ jobs:
         with:
           release: R2023a
           
+      - name: Install Statistics and Machine Learning Toolbox
+        uses: mathworks/install-toolbox@v1
+        with:
+         toolbox-name: Statistics_and_Machine_Learning
+          
       - name: command
         uses: matlab-actions/run-command@v2
         with:
