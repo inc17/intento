@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      packages: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -21,7 +22,6 @@ jobs:
       - name: command
         uses: matlab-actions/run-command@v2
         with:
-          action: command
           command: |
             addpath('simu');
             diary('my_results.txt');
@@ -33,6 +33,7 @@ jobs:
         with:
           name: results
           path: my_results.txt
+          path-to-artifact: simu/my_results.txt
 
      
           
