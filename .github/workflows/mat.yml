@@ -26,7 +26,7 @@ jobs:
             diary('simu/my_results.txt');
             lab2; 
             diary off;
-            savefig(gcf, 'simu/graficas.fig');
+            exportgraphics(figure_handle, 'simu/grafica.png', 'Resolution', 300);
 
       - name: Subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
