@@ -33,7 +33,8 @@ jobs:
         with:
           name: results
           path: my_results.txt
-          path-to-artifact: simu/my_results.txt
+          run: |
+            mv my_results.txt "simu/"
 
      
           
