@@ -16,7 +16,7 @@ jobs:
         uses: matlab-actions/setup-matlab@v2
         with:
           release: R2023a
-          toolbox-name: Statistics_and_Machine_Learning
+          products: Statistics_and_Machine_Learning_Toolbox
           
       - name: command
         uses: matlab-actions/run-command@v2
