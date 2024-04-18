@@ -7,5 +7,5 @@ function test_normal1(testCase)
     Fase=0;
     Nciclos=2;
     Npp=5;
-    actSol=SENIAL.m
+    actSol=SENIAL
 end
