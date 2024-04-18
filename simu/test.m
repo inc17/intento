@@ -1,7 +1,11 @@
-function test=test_lab2
+function test=test_SENIAL
 test=functiontests(localfunctions)
 end
 function test_normal1(testCase)
-    media=2;
-    actSol=lab2
+    A=10;
+    fc=8e3;
+    Fase=0;
+    Nciclos=2;
+    Npp=5;
+    actSol=SENIAL.m
 end
