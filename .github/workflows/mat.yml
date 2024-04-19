@@ -30,7 +30,7 @@ jobs:
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
           echo "El mensaje del commit es: $COMMIT_MESSAGE"
-          echo "::set-output name=commit_message::$COMMIT_MESSAGE"
+          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
 
       - name: Crear carpeta con el nombre del commit
         run: |
@@ -39,7 +39,7 @@ jobs:
           cp lab2_3/* "$COMMIT_MESSAGE/"
 
       - name: Commit y push de la carpeta
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Actualizar artefactos"
           branch: main
