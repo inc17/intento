@@ -24,6 +24,14 @@ jobs:
         with:
           command: |
             addpath('simu')
+            figuras = dir('simu/*.png');
+
+            for i = 1:length(figuras)
+              figura_actual = figuras(i);
+              figura_path = fullfile('simu', figura_actual.name);
+              artifact_name = sprintf('figura_%d.png', i);  # Ejemplo de nombre de artefacto
+              actions.upload_artifact(artifact_name, figura_path);
+            end
 
       - name: Obtener mensaje de commit
         id: obtener_mensaje_de_commit
