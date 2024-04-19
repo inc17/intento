@@ -22,8 +22,8 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
+            phat('lab2_3')
             diary('simu/my_results.txt');
-            lab; 
             diary off;
             exportgraphics(gcf, 'simu/grafica.png', 'Resolution', 100);
 
