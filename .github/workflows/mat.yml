@@ -24,7 +24,6 @@ jobs:
         with:
           command: |
             addpath('lab2_3')
-            lab2_3;
 
       - name: Obtener mensaje de commit
         id: obtener_mensaje_de_commit
