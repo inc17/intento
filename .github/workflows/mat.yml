@@ -23,11 +23,8 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-            addpath('lab2_3')
-            diary('lab2_3/my_results.txt');
-            diary off;
-            saveas(gcf, 'lab2_3/grafica.png', 'png');
-
+            addpath('simu')
+            
       - name: Subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
