@@ -16,8 +16,8 @@ jobs:
         uses: matlab-actions/setup-matlab@v2
         with:
           release: R2023a
-          products: Statistics_and_Machine_Learning_Toolbox, Signal_Processing_Toolbox, 
-                    Curve_Fitting_Toolbox, DSP_System_Toolbox
+          products: Statistics_and_Machine_Learning_Toolbox Signal_Processing_Toolbox
+                    Curve_Fitting_Toolbox DSP_System_Toolbox
           
       - name: command
         uses: matlab-actions/run-command@v2
