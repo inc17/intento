@@ -23,7 +23,7 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-            addpath('lab3_1')
+            addpath('simu')
           
 
      
