@@ -24,7 +24,7 @@ jobs:
         with:
           command: |
             addpath('lab2_3');
-            lab_3_1;
+            lab2_3;
             saveas(gcf, 'lab2_3/grafica.jpg');
             
       - name: Subir cambios
