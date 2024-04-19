@@ -37,7 +37,7 @@ jobs:
           COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
           echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
           mkdir -p "$COMMIT_MESSAGE"
-          cp lab2_3/* "$COMMIT_MESSAGE/"
+          cp simu/* "$COMMIT_MESSAGE/"
 
       - name: Commit y push de la carpeta
         uses: stefanzweifel/git-auto-commit-action@v5
