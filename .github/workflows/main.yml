@@ -1,0 +1,18 @@
+name: Run MATLAB Commands on GitHub-Hosted Runner
+on:
+  push: 
+   branches:
+      - intento
+jobs:
+  my-job:
+    name: Run MATLAB Commands
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v2
+      - name: Run commands
+        uses: matlab-actions/run-command@v2
+        with:
+          command: results = runtests, assertSuccess(results);
