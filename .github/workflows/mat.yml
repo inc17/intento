@@ -25,7 +25,7 @@ jobs:
           command: |
             addpath('lab2_3');
             lab2_3;
-            saveas(gcf, 'lab2_3/grafica.jpg');
+            print(gcf, 'lab2_3/grafica.jpg', '-djpeg');
             
       - name: Subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
