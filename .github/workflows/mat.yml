@@ -34,7 +34,8 @@ jobs:
 
       - name: Crear carpeta con el nombre del commit
         run: |
-          COMMIT_MESSAGE="${{ steps.obtener_mensaje_de_commit.outputs.commit_message }}"
+          COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
+          echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
           mkdir -p "$COMMIT_MESSAGE"
           cp lab2_3/* "$COMMIT_MESSAGE/"
 
