@@ -23,7 +23,7 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-            addpath('lab2_3')
+            addpath('simu')
 
       - name: Obtener mensaje de commit
         id: obtener_mensaje_de_commit
