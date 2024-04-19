@@ -24,7 +24,7 @@ jobs:
         with:
           command: |
             addpath('lab_3_1');
-            exportgraphics(gcf, 'lab2_3/grafica.png');
+            saveas(gcf, 'lab2_3/grafica.jpg');
             
       - name: Subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
