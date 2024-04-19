@@ -23,7 +23,7 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-            path('lab2_3')
+            path('simu')
             diary('simu/my_results.txt');
             diary off;
             exportgraphics(gcf, 'lab2_3/grafica.png', 'Resolution', 100);
