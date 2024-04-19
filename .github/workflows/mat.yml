@@ -23,7 +23,17 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-            addpath('simu')
+            addpath('simu');
+            diary('simu/my_results.txt');
+            lab2; 
+            diary off;
+            exportgraphics(gcf, 'simu/grafica.png', 'Resolution', 300);
+            
+      - name: Subir cambios
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          repository: simu
+
           
 
      
