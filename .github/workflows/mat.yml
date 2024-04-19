@@ -32,12 +32,13 @@ jobs:
           echo "El mensaje del commit es: $COMMIT_MESSAGE"
           echo "::set-output name=commit_message::$COMMIT_MESSAGE"
 
-      # Crear carpeta con el nombre del commit
+         # Crear carpeta con el nombre del commit
       - name: Crear carpeta con el nombre del commit
         run: |
-          COMMIT_MESSAGE="${{ steps.Obtener mensaje de commit.outputs.commit_message }}"
-          mkdir "$COMMIT_MESSAGE"
-          cp lab2_3/* "$COMMIT_MESSAGE/"
+         COMMIT_MESSAGE="${{ steps.obtener_mensaje_de_commit.outputs.commit_message }}"
+         mkdir "$COMMIT_MESSAGE"
+         cp lab2_3/* "$COMMIT_MESSAGE/"
+
 
       # Commit y push de la carpeta
       - name: Commit y push de la carpeta
