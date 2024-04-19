@@ -23,7 +23,7 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-            addpath('lab_3_1');
+            addpath('lab2_3');
             saveas(gcf, 'lab2_3/grafica.jpg');
             
       - name: Subir cambios
