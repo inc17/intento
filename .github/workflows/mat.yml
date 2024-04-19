@@ -25,16 +25,14 @@ jobs:
           command: |
             addpath('lab2_3');
             lab2_3;
-            print(gcf, 'lab2_3/grafica.jpg', '-djpeg');
 
       - name: Verificar archivos generados
         run: |
           ls lab2_3
             
-      - name: Subir cambios
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          repository: lab2_3
+      - name: Subir artefactos
+        uses: actions/upload-artifact@v2
+    
 
           
 
