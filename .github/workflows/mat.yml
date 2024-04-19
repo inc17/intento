@@ -32,7 +32,9 @@ jobs:
             
       - name: Subir artefactos
         uses: actions/upload-artifact@v2
-    
+        with:
+          name: resultados
+          path: lab2_3/*.jpg
 
           
 
