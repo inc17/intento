@@ -4,7 +4,7 @@ clear all
 SNR=20;
 fc=8000;
 Pn=5;
-[y,t,w,Tobs]=Senialyruido(SNR,fc,Pn);
+[y,t,f, Yf,w,Tobs]=Senialyruido(SNR,fc,Pn);
 
  figure
  plot(f, abs(Yf)); title("Respuesta en magnitud de la salida");
