@@ -54,3 +54,6 @@ ordenados =
 
     0.6575    1.0000    2.0000
 
+[Warning: Imaginary parts of complex X and/or Y arguments ignored.] 
+[> In lab (line 10)
+In command_cf2735dc_b7c9_473f_8321_97e2d9a8a192 (line 2)] 
