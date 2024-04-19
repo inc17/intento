@@ -1,5 +1,5 @@
 name: usar matlab
-'on':
+on:
   push:
     branches:
       - main
@@ -26,25 +26,21 @@ jobs:
             addpath('lab2_3')
             lab2_3;
 
-      - name: obtener
+      - name: Obtener mensaje de commit
+        id: obtener_mensaje_de_commit
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
+          echo "El mensaje del commit es: $COMMIT_MESSAGE"
+          echo "::set-output name=commit_message::$COMMIT_MESSAGE"
 
       - name: Crear carpeta con el nombre del commit
         run: |
-         COMMIT_MESSAGE="${{ steps.obtener.outputs.commit_message }}"
-         mkdir "$COMMIT_MESSAGE"
-         cp lab2_3/* "$COMMIT_MESSAGE/"
+          COMMIT_MESSAGE="${{ steps.obtener_mensaje_de_commit.outputs.commit_message }}"
+          mkdir -p "$COMMIT_MESSAGE"
+          cp lab2_3/* "$COMMIT_MESSAGE/"
 
-
-      # Commit y push de la carpeta
       - name: Commit y push de la carpeta
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Actualizar artefactos"
           branch: main
-
-          
-
-     
-          
