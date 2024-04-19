@@ -25,7 +25,7 @@ jobs:
           command: |
             addpath('lab2_3');
             diary('lab2_3/my_results.txt');
-            lab2; 
+            lab_3_1; 
             diary off;
             exportgraphics(gcf, 'lab2_3/grafica.png', 'Resolution', 300);
             
