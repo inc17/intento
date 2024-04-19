@@ -57,3 +57,6 @@ ordenados =
 [Warning: Imaginary parts of complex X and/or Y arguments ignored.] 
 [> In lab (line 10)
 In command_cf2735dc_b7c9_473f_8321_97e2d9a8a192 (line 2)] 
+[Warning: Imaginary parts of complex X and/or Y arguments ignored.] 
+[> In lab (line 10)
+In command_691cdd96_f427_4b5f_a484_0e850fe12505 (line 2)] 
