@@ -26,16 +26,13 @@ jobs:
             addpath('lab2_3')
             lab2_3;
 
-      - name: Obtener mensaje de commit
+      - name: obtener
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
-          echo "El mensaje del commit es: $COMMIT_MESSAGE"
-          echo "::set-output name=commit_message::$COMMIT_MESSAGE"
 
-         # Crear carpeta con el nombre del commit
       - name: Crear carpeta con el nombre del commit
         run: |
-         COMMIT_MESSAGE="${{ steps.obtener_mensaje_de_commit.outputs.commit_message }}"
+         COMMIT_MESSAGE="${{ steps.obtener.outputs.commit_message }}"
          mkdir "$COMMIT_MESSAGE"
          cp lab2_3/* "$COMMIT_MESSAGE/"
 
