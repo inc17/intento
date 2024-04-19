@@ -26,13 +26,22 @@ jobs:
             addpath('lab2_3')
             lab2_3;
 
-      - name: Crear carpeta de artefactos
+      - name: Obtener mensaje de commit
         run: |
-          mkdir artefactos
-          cp lab2_3/* artefactos/
-          
-      - name: Commit y push de artefactos
-        uses: stefanzweifel/git-auto-commit-action@v5
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
+          echo "El mensaje del commit es: $COMMIT_MESSAGE"
+          echo "::set-output name=commit_message::$COMMIT_MESSAGE"
+
+      # Crear carpeta con el nombre del commit
+      - name: Crear carpeta con el nombre del commit
+        run: |
+          COMMIT_MESSAGE="${{ steps.Obtener mensaje de commit.outputs.commit_message }}"
+          mkdir "$COMMIT_MESSAGE"
+          cp lab2_3/* "$COMMIT_MESSAGE/"
+
+      # Commit y push de la carpeta
+      - name: Commit y push de la carpeta
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Actualizar artefactos"
           branch: main
