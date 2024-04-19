@@ -24,14 +24,14 @@ jobs:
         with:
           command: |
             addpath('lab2_3')
-            diary('simu/my_results.txt');
+            diary('lab2_3/my_results.txt');
             diary off;
             saveas(gcf, 'lab2_3/grafica.png', 'png');
 
       - name: Subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          repository: simu
+          repository: lab2_3
 
      
           
