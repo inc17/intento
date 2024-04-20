@@ -38,7 +38,7 @@ jobs:
           echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
           mkdir -p "$COMMIT_MESSAGE"
           cp simu/* "$COMMIT_MESSAGE/"
-          mv *.png
+          mv *.png /$COMMIT_MESSAGE
 
       - name: Subir archivos como artefactos
         uses: actions/upload-artifact@v2
