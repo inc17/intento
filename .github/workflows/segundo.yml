@@ -1,8 +1,8 @@
-name: Usar MATLAB
+name: Segundo
 on:
   push:
     branches:
-      - segundo
+      - main
 
 jobs:
   build:
