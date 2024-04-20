@@ -25,7 +25,7 @@ jobs:
           command: |
             addpath('lab2_3')
             % Tu script de MATLAB que genera figuras
-            tu_script_matlab_que_genera_figuras;
+            lab_3_1;
             % Obtener el número total de figuras generadas
             num_figuras = numel(findobj('type','figure'));
             % Guardar todas las figuras en una carpeta específica
