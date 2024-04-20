@@ -17,10 +17,7 @@ jobs:
         uses: matlab-actions/setup-matlab@v2
         with:
           release: R2023a
-          products: Statistics_and_Machine_Learning_Toolbox 
-                    Signal_Processing_Toolbox 
-                    Curve_Fitting_Toolbox 
-                    DSP_System_Toolbox
+          products: Statistics_and_Machine_Learning_Toolbox Signal_Processing_Toolbox Curve_Fitting_Toolbox DSP_System_Toolbox
           
       - name: Ejecutar comando MATLAB
         uses: matlab-actions/run-command@v2
@@ -28,10 +25,29 @@ jobs:
           command: |
             addpath('simu')
 
+      - name: Obtener mensaje de commit
+        id: obtener_mensaje_de_commit
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
+          echo "El mensaje del commit es: $COMMIT_MESSAGE"
+          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
+
+      - name: Crear carpeta con el nombre del commit y mover archivos
+        run: |
+          COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
+          echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
+          mkdir -p "$COMMIT_MESSAGE"
+          cp simu/* "$COMMIT_MESSAGE/"
+          mv *.png
 
       - name: Subir archivos como artefactos
         uses: actions/upload-artifact@v2
         with:
          name: resultados
-         path: simu
+         path: resultados
 
+      - name: Commit y push de la carpeta
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Actualizar artefactos"
+          branch: main
