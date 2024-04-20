@@ -20,4 +20,4 @@ jobs:
       - name: Ejecutar script de MATLAB
         uses: matlab-actions/run-command@v2
         with:
-          command: matlab -batch "run('lab2.m')"
+          command: matlab -batch "run('simu/lab2.m')"
