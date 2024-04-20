@@ -28,6 +28,7 @@ nexttile
 plot(t,g_h)
 title('transformada  Hilbert')
 
+saveas(gcf, "figura1.png")
 g_m=g+j*g_h;
 g_l=g-j*g_h;
 
@@ -38,7 +39,7 @@ hold on
 plot(g_l)
 title('Pre-envolvente')
 hold off
-
+saveas(gcf, "Pre-envolvente.png")
 S_AmI= fftshift(fft(mI)); 
 S_AmQ= fftshift(fft(mQ)); 
 S_Ag= fftshift(fft(g)); 
@@ -78,12 +79,13 @@ title('FASE g+')
 nexttile
 plot(f,angle(S_Ag_l))
 title('FASE g-')
-
+saveas(gcf, "figura2.png")
 g_c = sqrt((mI.^2)+(mQ.^2));
 
 figure
 plot(f,abs(g_c))
 
+saveas(gcf, "figura3.png")
 [w,t]=WNOISE(100,t);
 SNR=100;
 Pn=10;
@@ -106,7 +108,7 @@ grQ = g_hr.*cos(2*pi.*fc.*t) - g_r.*sin(2*pi.*fc.*t);
 figure
 plot(t, grI, t, grQ)
 legend('grI', 'grQ')
-
+saveas(gcf, "figura4.png")
 gr_mr=g_r+j.*g_hr;
 gr_lr=g_r-j.*g_hr;
 
