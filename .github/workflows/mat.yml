@@ -17,7 +17,10 @@ jobs:
         uses: matlab-actions/setup-matlab@v2
         with:
           release: R2023a
-          products: Statistics_and_Machine_Learning_Toolbox Signal_Processing_Toolbox Curve_Fitting_Toolbox DSP_System_Toolbox
+          products: Statistics_and_Machine_Learning_Toolbox 
+                    Signal_Processing_Toolbox 
+                    Curve_Fitting_Toolbox 
+                    DSP_System_Toolbox
           
       - name: Ejecutar comando MATLAB
         uses: matlab-actions/run-command@v2
@@ -38,7 +41,7 @@ jobs:
           echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
           mkdir -p "$COMMIT_MESSAGE"
           cp simu/* "$COMMIT_MESSAGE/"
-          mv *.png
+          mv *.png /"$COMMIT_MESSAGE"
 
       - name: Subir archivos como artefactos
         uses: actions/upload-artifact@v2
