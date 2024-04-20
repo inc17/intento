@@ -46,7 +46,6 @@ hold off
 saveas(gcf, 'figura1.png');
 
 
-
 %g minima
 v_min=100;
 v_intento=0;
@@ -114,6 +113,5 @@ hist(z)
 title(ax3,'Varianza de z')
 xlim([-6 8]);
 
-saveas(gcf, 'figura3.png');
 valores=[var_x,var_y,v_min];
 ordenados=sort(valores)
