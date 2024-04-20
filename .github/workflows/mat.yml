@@ -41,7 +41,7 @@ jobs:
 
       - name: mover archivos
         run: |
-           mv *.png "/$COMMIT_MESSAGE"
+           mv simu/*.png "/$COMMIT_MESSAGE"
 
       - name: Subir archivos como artefactos
         uses: actions/upload-artifact@v2
