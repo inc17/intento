@@ -23,9 +23,9 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-            addpath('lab2_3')
+            addpath('simu')
             % Tu script de MATLAB que genera figuras
-            lab_3_1;
+            lab2_3;
             % Obtener el número total de figuras generadas
             num_figuras = numel(findobj('type','figure'));
             % Guardar todas las figuras en una carpeta específica
@@ -46,11 +46,11 @@ jobs:
           COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
           echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
           mkdir -p "$COMMIT_MESSAGE"
-          cp lab2_3/* "$COMMIT_MESSAGE/"
+          cp simu/* "$COMMIT_MESSAGE/"
 
       - name: mover archivos
         run: |
-           mv lab2_3/*.png "$COMMIT_MESSAGE"
+           mv simu/*.png "$COMMIT_MESSAGE"
 
 
       - name: Commit y push de la carpeta
