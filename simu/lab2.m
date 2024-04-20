@@ -43,7 +43,7 @@ plot(s,abs(fi_y))
 plot(s,abs(fi_z))
 legend("funcion x","funcion y","funcion z")
 hold off
-
+saveas(gcf,'funciones.jpg')
 
 %g minima
 v_min=100;
