@@ -23,5 +23,5 @@ jobs:
         with:
           command: |
             addpath('simu')
-            r-"run('lab2.m')"
+            -r "run('lab2.m')"
 
