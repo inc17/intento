@@ -1,10 +1,11 @@
-name: usar matlab
+name: Usar MATLAB
 on:
   push:
     branches:
       - main
+
 jobs:
-  builds:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -16,10 +17,9 @@ jobs:
         uses: matlab-actions/setup-matlab@v2
         with:
           release: R2023a
-          products: Statistics_and_Machine_Learning_Toolbox Signal_Processing_Toolbox
-                    Curve_Fitting_Toolbox DSP_System_Toolbox
+          products: Statistics_and_Machine_Learning_Toolbox Signal_Processing_Toolbox Curve_Fitting_Toolbox DSP_System_Toolbox
           
-      - name: command
+      - name: Ejecutar comando MATLAB
         uses: matlab-actions/run-command@v2
         with:
           command: |
@@ -37,9 +37,8 @@ jobs:
           COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
           echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
           mkdir -p "$COMMIT_MESSAGE"
-          cp simu/* "$COMMIT_MESSAGE/
+          cp simu/* "$COMMIT_MESSAGE/"
           mv *.png *.txt resultados/
-
 
       - name: Subir archivos como artefactos
         uses: actions/upload-artifact@v2
