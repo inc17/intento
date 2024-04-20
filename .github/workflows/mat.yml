@@ -32,13 +32,16 @@ jobs:
           echo "El mensaje del commit es: $COMMIT_MESSAGE"
           echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
 
-      - name: Crear carpeta con el nombre del commit y mover archivos
+      - name: Crear carpeta con el nombre del commit
         run: |
           COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
           echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
           mkdir -p "$COMMIT_MESSAGE"
           cp simu/* "$COMMIT_MESSAGE/"
-          mv *.png /$COMMIT_MESSAGE
+
+      - name: mover archivos
+        run: |
+           mv simu/*.png "$COMMIT_MESSAGE"
 
       - name: Subir archivos como artefactos
         uses: actions/upload-artifact@v2
