@@ -1,6 +1,3 @@
-clc
-clear all
-
 
 u=1; %media
 v_1=sqrt(1); %varianza 1
