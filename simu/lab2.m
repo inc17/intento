@@ -2,12 +2,12 @@ clc
 clear all
 
 
-u=5; %media
+u=1; %media
 v_1=sqrt(1); %varianza 1
 v_2=sqrt(2); %varianza 2
 m_exp=0;
 v_exp=0;
-g=0.5;
+g=2;
 
 
 x_1=normrnd(u,v_1,[10000,1]);
