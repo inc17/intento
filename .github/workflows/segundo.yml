@@ -23,12 +23,5 @@ jobs:
         with:
           command: |
             addpath('simu')
-            run('lab2.m')
-
-      - name: Descargar archivos de imagen
-        uses: actions/download-artifact@v2
-        with:
-          name: funcion
-          path: |  # Ruta de descarga dentro del repositorio
-            /home/runner/work/23
+            r-"run('lab2.m')"
 
