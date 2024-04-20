@@ -1,4 +1,5 @@
-name: Segundo
+name: Generar y guardar gráfico en MATLAB
+
 on:
   push:
     branches:
@@ -7,54 +8,31 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
-        
+        uses: actions/checkout@v2
+
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v2
         with:
           release: R2023a
-          products: Statistics_and_Machine_Learning_Toolbox Signal_Processing_Toolbox Curve_Fitting_Toolbox DSP_System_Toolbox
           
-      - name: Ejecutar comando MATLAB
+      - name: Ejecutar script de MATLAB
         uses: matlab-actions/run-command@v2
         with:
           command: |
-            addpath('simu')
-            % Tu script de MATLAB que genera figuras
-            lab2;
-            % Obtener el número total de figuras generadas
-            num_figuras = numel(findobj('type','figure'));
-            % Guardar todas las figuras en una carpeta específica
-            for i = 1:num_figuras
-                nombre_figura = sprintf('lab2_3/figura%d.png', i);
-                saveas(i, nombre_figura);
-            end
-
-      - name: Obtener mensaje de commit
-        id: obtener_mensaje_de_commit
-        run: |
-          COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
-          echo "El mensaje del commit es: $COMMIT_MESSAGE"
-          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
-
-      - name: Crear carpeta con el nombre del commit
-        run: |
-          COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
-          echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
-          mkdir -p "$COMMIT_MESSAGE"
-          cp simu/* "$COMMIT_MESSAGE/"
-
-      - name: mover archivos
-        run: |
-           mv simu/*.png "$COMMIT_MESSAGE"
-
-
-      - name: Commit y push de la carpeta
-        uses: stefanzweifel/git-auto-commit-action@v5
+            % Script de MATLAB para generar un gráfico
+            x = linspace(0, 2*pi, 100);
+            y = sin(x);
+            plot(x, y);
+            title('Gráfico de ejemplo');
+            xlabel('x');
+            ylabel('y');
+            % Guardar el gráfico como un archivo PNG
+            saveas(gcf, 'grafico.png');
+      
+      - name: Guardar gráfico como un artefacto
+        uses: actions/upload-artifact@v2
         with:
-          commit_message: "Guardar figuras generadas por MATLAB"
-          branch: ${{ github.ref }}
+          name: grafico-generado
+          path: grafico.png
