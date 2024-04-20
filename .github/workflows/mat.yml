@@ -24,14 +24,6 @@ jobs:
         with:
           command: |
             addpath('simu')
-            figuras = dir('simu/*.png');
-
-            for i = 1:length(figuras)
-              figura_actual = figuras(i);
-              figura_path = fullfile('simu', figura_actual.name);
-              artifact_name = sprintf('figura_%d.png', i);  # Ejemplo de nombre de artefacto
-              actions.upload_artifact(artifact_name, figura_path);
-            end
 
       - name: Obtener mensaje de commit
         id: obtener_mensaje_de_commit
@@ -40,12 +32,20 @@ jobs:
           echo "El mensaje del commit es: $COMMIT_MESSAGE"
           echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
 
-      - name: Crear carpeta con el nombre del commit
+      - name: Crear carpeta con el nombre del commit y mover archivos
         run: |
           COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
           echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
           mkdir -p "$COMMIT_MESSAGE"
-          cp simu/* "$COMMIT_MESSAGE/"
+          cp simu/* "$COMMIT_MESSAGE/
+          mv *.png *.txt resultados/
+
+
+      - name: Subir archivos como artefactos
+        uses: actions/upload-artifact@v2
+        with:
+         name: resultados
+         path: resultados
 
       - name: Commit y push de la carpeta
         uses: stefanzweifel/git-auto-commit-action@v5
