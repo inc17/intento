@@ -22,4 +22,4 @@ jobs:
         with:
           command: |
             addpath('simu')
-            matlab -batch "run('lab2.m')"
+            run('lab2.m')
