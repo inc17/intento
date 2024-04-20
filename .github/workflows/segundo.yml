@@ -25,7 +25,7 @@ jobs:
           command: |
             addpath('simu')
             % Tu script de MATLAB que genera figuras
-            lab2_3;
+            lab2;
             % Obtener el número total de figuras generadas
             num_figuras = numel(findobj('type','figure'));
             % Guardar todas las figuras en una carpeta específica
