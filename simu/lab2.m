@@ -43,8 +43,6 @@ plot(s,abs(fi_y))
 plot(s,abs(fi_z))
 legend("funcion x","funcion y","funcion z")
 hold off
-saveas(gcf, 'figura1.png');
-
 
 
 %g minima
@@ -79,7 +77,7 @@ title('g vs varianzas de z')
 xlabel('g')
 ylabel('varianza de z')
 z=x_2+(1-g_min)*(y_2-x_2);
-saveas(gcf, 'figura2.png');
+
 disp(['Encontrar la g para la varianza minima de z']);
 disp(['El valor de g para la minima varianza es: ',num2str(g_min)]);
 
@@ -114,6 +112,5 @@ hist(z)
 title(ax3,'Varianza de z')
 xlim([-6 8]);
 
-saveas(gcf, 'figura3.png');
 valores=[var_x,var_y,v_min];
 ordenados=sort(valores)
