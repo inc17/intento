@@ -20,19 +20,4 @@ jobs:
       - name: Ejecutar script de MATLAB
         uses: matlab-actions/run-command@v2
         with:
-          command: |
-            % Script de MATLAB para generar un gráfico
-            x = linspace(0, 2*pi, 100);
-            y = sin(x);
-            plot(x, y);
-            title('Gráfico de ejemplo');
-            xlabel('x');
-            ylabel('y');
-            % Guardar el gráfico como un archivo PNG
-            saveas(gcf, 'grafico.png');
-      
-      - name: Guardar gráfico como un artefacto
-        uses: actions/upload-artifact@v2
-        with:
-          name: grafico-generado
-          path: grafico.png
+          command: matlab -batch "run('lab2.m')"
