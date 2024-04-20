@@ -1,6 +1,7 @@
 clc
 clear all
 
+
 u=5; %media
 v_1=sqrt(1); %varianza 1
 v_2=sqrt(2); %varianza 2
@@ -42,7 +43,7 @@ plot(s,abs(fi_y))
 plot(s,abs(fi_z))
 legend("funcion x","funcion y","funcion z")
 hold off
-
+%saveas(gcf, 'figura.png');
 
 
 %g minima
