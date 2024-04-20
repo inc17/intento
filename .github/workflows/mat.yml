@@ -29,4 +29,4 @@ jobs:
 
       - name: mover archivos
         run: |
-           mv lab2_3/*.png "$COMMIT_MESSAGE"
+           mv simu/*.png "$COMMIT_MESSAGE"
