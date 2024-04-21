@@ -27,9 +27,6 @@ jobs:
           command: |
             addpath('lab2_3')
             lab_3_1
-            WNOISE
-            sencircular
-            sentriangular
             exportgraphics(fig1, 'simu/grafica1.png');
             exportgraphics(fig2, 'simu/grafica2.png');
             exportgraphics(fig3, 'simu/grafica3.png');
