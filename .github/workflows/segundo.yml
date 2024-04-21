@@ -23,7 +23,8 @@ jobs:
         with:
           command: |
             addpath('simu')
-            saveas(gcf,'figura1.png')
+            lab2
+            exportgraphics(gcf, 'simu/grafica.png', 'Resolution', 300);
 
       - name: Subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
