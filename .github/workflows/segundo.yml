@@ -26,7 +26,7 @@ jobs:
             saveas(gcf,'figura1.png')
 
       - name: Subir cambios
-      - uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v5
         with: 
          branch: main
 
