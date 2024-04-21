@@ -23,5 +23,10 @@ jobs:
         with:
           command: |
             addpath('simu')
-            -r "run('lab2.m')"
+            saveas(gcf,'figura1.png')
+
+      - name: Subir cambios
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with: 
+         branch: main
 
