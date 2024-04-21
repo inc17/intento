@@ -1,0 +1,55 @@
+name: casi
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v2
+        with:
+          release: R2023a
+          products: Statistics_and_Machine_Learning_Toolbox
+          
+      - name: Ejecutar script de MATLAB
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            addpath('simu')
+            lab2
+            exportgraphics(fig1, 'simu/grafica1.png');
+            exportgraphics(fig2, 'simu/grafica2.png');
+            exportgraphics(fig3, 'simu/grafica3.png');
+
+      - name: Obtener mensaje de commit
+        id: obtener_mensaje_de_commit
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
+          echo "El mensaje del commit es: $COMMIT_MESSAGE"
+          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
+
+      - name: Crear carpeta con el nombre del commit
+        run: |
+          COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
+          echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
+          mkdir -p "$COMMIT_MESSAGE"
+          cp lab2_3/* "$COMMIT_MESSAGE/"
+
+      - name: mover archivos
+        run: |
+           mv simu/*.png "$COMMIT_MESSAGE"
+
+      - name: Commit y push de la carpeta
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Actualizar artefactos"
+          branch: main
