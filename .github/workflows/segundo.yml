@@ -26,8 +26,9 @@ jobs:
           command: |
             addpath('simu')
             lab2
-            exportgraphics(gcf, 'simu/grafica1.png', 'Resolution', 300);
-            exportgraphics(gcf, 'simu/grafica2.png', 'Resolution', 300);
+            exportgraphics(fig1, 'simu/grafica1.png', 'Resolution', 100);
+            exportgraphics(fig2, 'simu/grafica2.png', 'Resolution', 100);
+            exportgraphics(fig3, 'simu/grafica3.png', 'Resolution', 100);
 
       - name: Subir cambios
         uses: stefanzweifel/git-auto-commit-action@v5
