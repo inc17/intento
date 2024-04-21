@@ -33,14 +33,13 @@ fi_y=sum(fi_y,1);
 fi_z = exp(j*s.*z);
 fi_z=sum(fi_z,1);
 
-figure
+fig1=figure
 hold on
 plot(s,abs(fi_x))
 plot(s,abs(fi_y))
 plot(s,abs(fi_z))
 legend("funcion x","funcion y","funcion z")
 hold off
-saveas(gcf,'funciones.jpg')
 
 %g minima
 v_min=100;
@@ -68,7 +67,7 @@ end
 v_min=min(v_s);
 p=find(v_s==v_min);
 g_min=g_s(p);
-figure
+fig2=figure
 plot(g_s,v_s);
 title('g vs varianzas de z')
 xlabel('g')
@@ -90,7 +89,7 @@ disp(['Varianza de y: ',num2str(var_y)]);
 disp(['Varianza de z: ',num2str(v_min)]);
 
 
-figure
+fig3=figure
 % Create plots.
 t = tiledlayout(3,1);
 
