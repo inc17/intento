@@ -14,8 +14,7 @@ y=zeros(size(t));
 t1=t(1:fix(ly/2)); t2=t(fix(ly/2)+1:ly);
 y(1:ly2)=(2*A/T)*t1;
 y(ly2+1:ly)=-(2*A/T)*t2+2*A/T;
-fig1=figure
-plot(t,y);
+fig1=plot(t,y);
 xlabel('Tiempo (s)');
 ylabel('Amplitud');
 title('Señal Triangular');
