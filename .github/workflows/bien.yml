@@ -27,7 +27,7 @@ jobs:
           command: |
             addpath('lab3')
             lab3
-            exportgraphics(fig1, 'lab3/grafica1.png');
+            exportgraphics(fig1, 'sentriangular/grafica1.png');
             exportgraphics(fig2, 'lab3/grafica2.png');
             exportgraphics(fig3, 'lab3/grafica3.png');
 
