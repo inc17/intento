@@ -30,7 +30,6 @@ jobs:
             exportgraphics(fig1, 'lab3/grafica1.png');
             exportgraphics(fig2, 'lab3/grafica2.png');
             exportgraphics(fig3, 'lab3/grafica3.png');
-            exportgraphics(fig4, 'lab3/grafica4.png');
 
       - name: Obtener mensaje de commit
         id: obtener_mensaje_de_commit
