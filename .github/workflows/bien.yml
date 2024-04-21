@@ -19,6 +19,7 @@ jobs:
         with:
           release: R2023a
           products: Statistics_and_Machine_Learning_Toolbox
+                    Signal_Processing_Toolbox
           
       - name: Ejecutar script de MATLAB
         uses: matlab-actions/run-command@v2
