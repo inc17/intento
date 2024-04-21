@@ -8,9 +8,9 @@ fc=10;
 fs=20;
 A=3;
 
-figure
+fig1=figure
 [mI,t]=sentriangular(10,1,100);
-figure
+fig2=figure
 [mQ,t]=sencircular(10,1,100);
 
 df=fs/length(t);
@@ -33,7 +33,7 @@ g_m=g+j*g_h;
 g_l=g-j*g_h;
 
 
-figure
+fig3=figure
 plot(g_m)
 hold on
 plot(g_l)
