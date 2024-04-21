@@ -86,7 +86,7 @@ figure
 plot(f,abs(g_c))
 
 saveas(gcf, "figura3.png")
-[w,t]=WNOISE(100,t);
+[w]=WNOISE(100,t);
 SNR=100;
 Pn=10;
 factor=sqrt((SNR*Pn *length(t))/(sum(abs(g).^2)));
