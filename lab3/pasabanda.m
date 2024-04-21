@@ -23,6 +23,6 @@ Y=fftshift(y_f);
 
 h=ifft(Y);
 h=ifftshift(h);
-figure;
+fig4=figure;
 plot(t,h);
 end
