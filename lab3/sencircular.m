@@ -16,7 +16,7 @@ t1=t(1:fix(ly/2)); t2=t(fix(ly/2)+1:ly);
 % y(1:ly2)=A*sqrt(1-((t-t(ly2)).^2)/T^2);
 % y(ly2+1:ly)=-(2*A/T)*t2+2*A/T;
 y=A*sqrt(1-(4*(t-t(ly2+1)).^2)/T^2);
-fig2=plot(t,y)
+plot(t,y)
 xlabel('Tiempo (s)');
 ylabel('Amplitud');
 title ('Señal Semicircular');

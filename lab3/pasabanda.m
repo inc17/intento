@@ -6,7 +6,7 @@ b=(0<f).*(-2*pi*fc*tf+(a.*(f-fc)))+(f<0).*(2*pi*fc*tf+(a.*(f+fc)));
 
 H=(abs(f+fc)<=W|abs(f-fc)<=W).*exp(i*b);
 
-fig3=figure
+figure
 tiledlayout(2,1)
 nexttile
 plot(f,abs(H))
@@ -23,6 +23,6 @@ Y=fftshift(y_f);
 
 h=ifft(Y);
 h=ifftshift(h);
-fig4=figure;
+figure;
 plot(t,h);
 end
