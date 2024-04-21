@@ -88,7 +88,7 @@ plot(f,abs(g_c))
 
 SNR=100;
 Pn=10;
-[w]=WNOISE(Pn,t);
+[w,t]=WNOISE(100,t);
 factor=sqrt((SNR*Pn *length(t))/(sum(abs(g).^2)));
 
 g_r=g*factor+w';
