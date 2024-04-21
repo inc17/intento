@@ -2,11 +2,11 @@ clear all
 clc
 close all
 
-T=2;
+T=6;
 B=1/T;
-fc=10;
-fs=20;
-A=3;
+fc=50;
+fs=10;
+A=8;
 
 fig1=figure
 [mI,t]=sentriangular(10,1,100);
