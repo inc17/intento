@@ -25,11 +25,11 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-            addpath('lab2_3')
-            lab_3_1
-            exportgraphics(fig1, 'lab2_3/grafica1.png');
-            exportgraphics(fig2, 'lab2_3/grafica2.png');
-            exportgraphics(fig3, 'lab2_3/grafica3.png');
+            addpath('lab3')
+            lab3
+            exportgraphics(fig1, 'lab3/grafica1.png');
+            exportgraphics(fig2, 'lab3/grafica2.png');
+            exportgraphics(fig3, 'lab3/grafica3.png');
 
       - name: Obtener mensaje de commit
         id: obtener_mensaje_de_commit
@@ -43,11 +43,11 @@ jobs:
           COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
           echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
           mkdir -p "$COMMIT_MESSAGE"
-          cp lab2_3/* "$COMMIT_MESSAGE/"
+          cp lab3/* "$COMMIT_MESSAGE/"
 
       - name: mover archivos
         run: |
-           mv lab2_3/*.png "$COMMIT_MESSAGE"
+           mv lab3/*.png "$COMMIT_MESSAGE"
 
       - name: Commit y push de la carpeta
         uses: stefanzweifel/git-auto-commit-action@v5
