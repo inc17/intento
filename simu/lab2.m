@@ -1,10 +1,10 @@
 
-u=5; %media
+u=8; %media
 v_1=sqrt(1); %varianza 1
 v_2=sqrt(2); %varianza 2
 m_exp=0;
 v_exp=0;
-g=5;
+g=10;
 
 
 x_1=normrnd(u,v_1,[10000,1]);
