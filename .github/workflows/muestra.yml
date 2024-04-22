@@ -27,9 +27,9 @@ jobs:
           command: |
             addpath('simu')
             lab2
-            exportgraphics(fig1, 'lab2/grafica1.png');
-            exportgraphics(fig2, 'lab2/grafica2.png');
-            exportgraphics(fig3, 'lab2/grafica3.png');
+            exportgraphics(fig1, 'simu/grafica1.png');
+            exportgraphics(fig2, 'simu/grafica2.png');
+            exportgraphics(fig3, 'simu/grafica3.png');
 
       - name: Obtener mensaje de commit
         id: obtener_mensaje_de_commit
