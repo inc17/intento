@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Check out repository
+      - name: Revisar repositorio
         uses: actions/checkout@v4
 
       - name: Set up MATLAB
@@ -38,16 +38,13 @@ jobs:
           echo "El mensaje del commit es: $COMMIT_MESSAGE"
           echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
 
-      - name: Crear carpeta con el nombre del commit
+      - name: Crear carpeta con el nombre del commit y mover archivos
         run: |
           COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
           echo "El valor de COMMIT_MESSAGE es: $COMMIT_MESSAGE"
           mkdir -p "$COMMIT_MESSAGE"
           cp simu/* "$COMMIT_MESSAGE/"
 
-      - name: mover archivos
-        run: |
-           mv simu/*.png "$COMMIT_MESSAGE"
 
       - name: Commit y push de la carpeta
         uses: stefanzweifel/git-auto-commit-action@v5
