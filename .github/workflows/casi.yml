@@ -44,9 +44,6 @@ jobs:
           mkdir -p "$COMMIT_MESSAGE"
           cp simu/* "$COMMIT_MESSAGE/"
 
-      - name: mover archivos
-        run: |
-           mv simu/*.png "$COMMIT_MESSAGE"
 
       - name: Commit y push de la carpeta
         uses: stefanzweifel/git-auto-commit-action@v5
